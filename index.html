@@ -5,13 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loryefix va in Giappone</title>
   <style>
-    /* Rimuovi sfondo e titolo */
+    /* Rimuove margini e padding e imposta sfondo nero */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background-color: #000; /* Sfondo nero per contrasto con le immagini */
+      background-color: #000; /* Sfondo nero per tutta la pagina */
+    }
+
+    /* Stile per la barra del titolo */
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000; /* Sfondo nero */
+      color: #fff; /* Testo bianco */
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .title-container img {
+      width: 30px; /* Imposta la larghezza della bandiera */
+      height: auto;
+      margin-left: 10px;
     }
 
     .slideshow-container {
@@ -20,29 +38,45 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 100%;
-      background-color: #000; /* Sfondo nero se le immagini non coprono tutta la pagina */
+      height: calc(100vh - 80px); /* Altezza del contenitore 100% della finestra meno l'altezza del titolo */
+      background-color: #000; /* Sfondo nero per centrare le immagini */
     }
 
     .slide {
       display: none;
+      border: 5px solid #000; /* Cornice nera attorno alle immagini */
+      margin: 10px;
     }
 
     .slide img {
-      display: block; /* Rimuove spazi vuoti attorno all'immagine */
-      max-width: 100%;  /* Limita larghezza al 100% della finestra */
-      max-height: 100%; /* Limita altezza al 100% della finestra */
+      display: block;
+      max-width: 80%;  /* Immagini più piccole del 80% della larghezza della finestra */
+      max-height: 80%; /* Immagini più piccole del 80% della finestra */
     }
 
     /* Media query per dispositivi mobili */
     @media (max-width: 600px) {
+      .title-container {
+        font-size: 20px; /* Riduci la dimensione del testo per schermi piccoli */
+      }
       .slideshow-container {
-        height: 100vh; /* Altezza del contenitore 100% della finestra */
+        height: calc(100vh - 60px); /* Adatta l'altezza per schermi piccoli */
+      }
+      .slide img {
+        max-width: 90%;  /* Immagini più piccole per schermi piccoli */
+        max-height: 90%;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Contenitore del titolo con bandiera -->
+  <div class="title-container">
+    Loryefix va in Giappone
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Japan.svg" alt="Bandiera del Giappone">
+  </div>
+
+  <!-- Contenitore per le immagini -->
   <div class="slideshow-container">
     <!-- Immagini -->
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
