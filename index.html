@@ -22,7 +22,6 @@
       display: flex;
       justify-content: center; /* Centra l'immagine orizzontalmente */
       align-items: center;     /* Centra l'immagine verticalmente */
-      cursor: pointer;        /* Cambia il cursore per far capire che è cliccabile */
     }
 
     .slide {
@@ -86,14 +85,17 @@
       slides[index].style.display = 'block';
     }
 
-    // Mostra subito la prima slide
-    showSlide(currentIndex);
-
-    // Funzione per cambiare la slide al clic
-    document.querySelector('.slideshow-container').addEventListener('click', function() {
+    // Funzione per cambiare la slide automaticamente ogni 5 secondi
+    function nextSlide() {
       currentIndex = (currentIndex + 1) % images.length;
       showSlide(currentIndex);
-    });
+    }
+
+    // Inizializza la prima slide
+    showSlide(currentIndex);
+
+    // Cambia la slide ogni 3 secondi
+    setInterval(nextSlide, 3000);
   </script>
 </body>
 </html>
