@@ -5,80 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loryefix va in Giappone</title>
   <style>
-    /* Rimuove margini e padding e imposta sfondo nero */
-    body, html {
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background-color: #000; /* Sfondo nero per tutta la pagina */
     }
 
-    /* Stile per la barra del titolo */
-    .title-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #000; /* Sfondo nero */
-      color: #fff; /* Testo bianco */
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .title-container img {
-      width: 30px; /* Imposta la larghezza della bandiera */
-      height: auto;
-      margin-left: 10px;
+    h1 {
+      color: #333;
+      margin: 20px 0;
     }
 
     .slideshow-container {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: calc(100vh - 80px); /* Altezza del contenitore 100% della finestra meno l'altezza del titolo */
-      background-color: #000; /* Sfondo nero per centrare le immagini */
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
     }
 
     .slide {
       display: none;
-      border: 5px solid #000; /* Cornice nera attorno alle immagini */
-      margin: 10px;
     }
 
     .slide img {
-      display: block;
-      max-width: 80%;  /* Immagini più piccole del 80% della larghezza della finestra */
-      max-height: 80%; /* Immagini più piccole del 80% della finestra */
+      width: 100%;
+      border-radius: 10px;
     }
 
-    /* Media query per dispositivi mobili */
-    @media (max-width: 600px) {
-      .title-container {
-        font-size: 20px; /* Riduci la dimensione del testo per schermi piccoli */
-      }
-      .slideshow-container {
-        height: calc(100vh - 60px); /* Adatta l'altezza per schermi piccoli */
-      }
-      .slide img {
-        max-width: 90%;  /* Immagini più piccole per schermi piccoli */
-        max-height: 90%;
-      }
+    .active {
+      display: block;
+    }
+
+    .caption {
+      color: #555;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 20px;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <!-- Contenitore del titolo con bandiera -->
-  <div class="title-container">
-    Loryefix va in Giappone
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Japan.svg" alt="Bandiera del Giappone">
-  </div>
-
-  <!-- Contenitore per le immagini -->
+  <h1>Loryefix va in Giappone</h1>
   <div class="slideshow-container">
-    <!-- Immagini -->
+    <!-- Images -->
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true" alt="Image 2">
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/3.jpg?raw=true" alt="Image 3">
@@ -91,8 +70,10 @@
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true" alt="Image 10">
   </div>
 
+  <div class="caption" id="caption"></div>
+
   <script>
-    // Array delle immagini
+    // Array delle immagini e didascalie
     const images = [
       "https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true",
       "https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true",
@@ -106,18 +87,35 @@
       "https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true"
     ];
 
+    const captions = [
+      "Immagine 1",
+      "Immagine 2",
+      "Immagine 3",
+      "Immagine 4",
+      "Immagine 5",
+      "Immagine 6",
+      "Immagine 7",
+      "Immagine 8",
+      "Immagine 9",
+      "Immagine 10"
+    ];
+
     let currentIndex = 0;
 
     // Funzione per mostrare la slide corrente
     function showSlide(index) {
       const slides = document.querySelectorAll('.slide');
+      const caption = document.getElementById("caption");
+
       // Nasconde tutte le slide
       slides.forEach(slide => slide.style.display = 'none');
+
       // Mostra la slide selezionata
       slides[index].style.display = 'block';
+      caption.textContent = captions[index];
     }
 
-    // Funzione per cambiare la slide automaticamente ogni 5 secondi
+    // Funzione per cambiare la slide automaticamente ogni 3 secondi
     function nextSlide() {
       currentIndex = (currentIndex + 1) % images.length;
       showSlide(currentIndex);
