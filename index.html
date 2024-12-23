@@ -5,75 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loryefix va in Giappone</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f4;
+    /* Rimuovi sfondo e titolo */
+    body, html {
       margin: 0;
       padding: 0;
-    }
-
-    h1 {
-      color: #333;
-      margin: 20px 0;
-      font-size: 2em; /* Imposta una dimensione del font più piccola su mobile */
+      height: 100%;
+      overflow: hidden;
+      background-color: #000; /* Sfondo nero per contrasto con le immagini */
     }
 
     .slideshow-container {
       position: relative;
-      max-width: 100%; /* Larghezza del contenitore al 100% */
-      margin: auto;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      background-color: #fff;
-      box-sizing: border-box;
     }
 
     .slide {
       display: none;
+      width: 100%;
+      height: 100%;
     }
 
     .slide img {
       width: 100%;
-      height: auto; /* Mantieni le proporzioni delle immagini */
-      border-radius: 10px;
+      height: 100%;
+      object-fit: cover; /* Fai in modo che le immagini si adattino a schermo intero */
     }
 
-    .active {
-      display: block;
-    }
-
-    .caption {
-      color: #555;
-      font-size: 1.2em; /* Imposta una dimensione del font leggibile */
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 20px;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* Media query per schermi di dimensioni più piccole */
+    /* Media query per schermi più piccoli, per visualizzazione intera */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5em; /* Riduce la dimensione del titolo sui dispositivi mobili */
-      }
-
-      .caption {
-        font-size: 1em; /* Riduce la dimensione del testo della didascalia */
-      }
-
       .slideshow-container {
-        max-width: 100%; /* Assicura che il contenitore si adatti al 100% della larghezza */
+        height: 100vh; /* Altezza del contenitore 100% della finestra */
       }
     }
   </style>
 </head>
 <body>
-  <h1>Loryefix va in Giappone</h1>
   <div class="slideshow-container">
     <!-- Immagini -->
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
@@ -88,10 +56,8 @@
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true" alt="Image 10">
   </div>
 
-  <div class="caption" id="caption"></div>
-
   <script>
-    // Array delle immagini e didascalie
+    // Array delle immagini
     const images = [
       "https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true",
       "https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true",
@@ -105,35 +71,18 @@
       "https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true"
     ];
 
-    const captions = [
-      "Immagine 1",
-      "Immagine 2",
-      "Immagine 3",
-      "Immagine 4",
-      "Immagine 5",
-      "Immagine 6",
-      "Immagine 7",
-      "Immagine 8",
-      "Immagine 9",
-      "Immagine 10"
-    ];
-
     let currentIndex = 0;
 
     // Funzione per mostrare la slide corrente
     function showSlide(index) {
       const slides = document.querySelectorAll('.slide');
-      const caption = document.getElementById("caption");
-
       // Nasconde tutte le slide
       slides.forEach(slide => slide.style.display = 'none');
-
       // Mostra la slide selezionata
       slides[index].style.display = 'block';
-      caption.textContent = captions[index];
     }
 
-    // Funzione per cambiare la slide automaticamente ogni 3 secondi
+    // Funzione per cambiare la slide automaticamente ogni 5 secondi
     function nextSlide() {
       currentIndex = (currentIndex + 1) % images.length;
       showSlide(currentIndex);
@@ -142,8 +91,8 @@
     // Inizializza la prima slide
     showSlide(currentIndex);
 
-    // Cambia la slide ogni 3 secondi
-    setInterval(nextSlide, 3000);
+    // Cambia la slide ogni 5 secondi
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
