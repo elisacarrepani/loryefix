@@ -57,43 +57,75 @@
 <body>
   <h1>Loryefix va in Giappone</h1>
   <div class="slideshow-container">
-    <div class="slide active">
-      <img src="" alt="Random Slide" id="slide-image">
-    </div>
+    <!-- Images -->
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true" alt="Image 2">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/3.jpg?raw=true" alt="Image 3">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/4.jpg?raw=true" alt="Image 4">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/5.jpg?raw=true" alt="Image 5">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/6.jpg?raw=true" alt="Image 6">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/7.jpg?raw=true" alt="Image 7">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/8.jpg?raw=true" alt="Image 8">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/9.jpg?raw=true" alt="Image 9">
+    <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true" alt="Image 10">
   </div>
+
   <div class="caption" id="caption"></div>
 
-  <div class="slideshow-container">
-        <!-- Images -->
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true" alt="Image 2">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/3.jpg?raw=true" alt="Image 3">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/4.jpg?raw=true" alt="Image 4">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/5.jpg?raw=true" alt="Image 5">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/6.jpg?raw=true" alt="Image 6">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/7.jpg?raw=true" alt="Image 7">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/8.jpg?raw=true" alt="Image 8">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/9.jpg?raw=true" alt="Image 9">
-        <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true" alt="Image 10">
-    </div>
+  <script>
+    // Array delle immagini e didascalie
+    const images = [
+      "https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/3.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/4.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/5.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/6.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/7.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/8.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/9.jpg?raw=true",
+      "https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true"
+    ];
 
-    // Mostra una slide casuale
-    function showRandomSlide() {
-      const randomIndex = Math.floor(Math.random() * images.length);
+    const captions = [
+      "Immagine 1",
+      "Immagine 2",
+      "Immagine 3",
+      "Immagine 4",
+      "Immagine 5",
+      "Immagine 6",
+      "Immagine 7",
+      "Immagine 8",
+      "Immagine 9",
+      "Immagine 10"
+    ];
 
-      // Aggiorna l'immagine e la didascalia
-      const slideImage = document.getElementById("slide-image");
-      slideImage.src = images[randomIndex];
+    let currentIndex = 0;
 
+    // Funzione per mostrare la slide corrente
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.slide');
       const caption = document.getElementById("caption");
-      caption.textContent = captions[randomIndex];
+
+      // Nasconde tutte le slide
+      slides.forEach(slide => slide.style.display = 'none');
+
+      // Mostra la slide selezionata
+      slides[index].style.display = 'block';
+      caption.textContent = captions[index];
     }
 
-    // Cambia slide ogni 3 secondi
-    setInterval(showRandomSlide, 3000);
+    // Funzione per cambiare la slide automaticamente ogni 3 secondi
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showSlide(currentIndex);
+    }
 
-    // Mostra subito la prima immagine
-    showRandomSlide();
+    // Inizializza la prima slide
+    showSlide(currentIndex);
+
+    // Cambia la slide ogni 3 secondi
+    setInterval(nextSlide, 3000);
   </script>
 </body>
-</html>
+</html> 
