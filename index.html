@@ -16,27 +16,25 @@
 
     .slideshow-container {
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center; /* Centra l'immagine orizzontalmente */
-      align-items: center;     /* Centra l'immagine verticalmente */
+      background-color: #000; /* Sfondo nero se le immagini non coprono tutta la pagina */
     }
 
     .slide {
       display: none;
-      width: auto;  /* Lascio la larghezza originale */
-      height: auto; /* Lascio l'altezza originale */
     }
 
     .slide img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; /* Mantieni le dimensioni originali dell'immagine */
+      display: block; /* Rimuove spazi vuoti attorno all'immagine */
+      max-width: 100%;  /* Limita larghezza al 100% della finestra */
+      max-height: 100%; /* Limita altezza al 100% della finestra */
     }
 
-    /* Media query per schermi più piccoli */
+    /* Media query per dispositivi mobili */
     @media (max-width: 600px) {
       .slideshow-container {
         height: 100vh; /* Altezza del contenitore 100% della finestra */
