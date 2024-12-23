@@ -16,16 +16,18 @@
     h1 {
       color: #333;
       margin: 20px 0;
+      font-size: 2em; /* Imposta una dimensione del font più piccola su mobile */
     }
 
     .slideshow-container {
       position: relative;
-      max-width: 800px;
+      max-width: 100%; /* Larghezza del contenitore al 100% */
       margin: auto;
       overflow: hidden;
       border: 2px solid #ddd;
       border-radius: 10px;
       background-color: #fff;
+      box-sizing: border-box;
     }
 
     .slide {
@@ -34,6 +36,7 @@
 
     .slide img {
       width: 100%;
+      height: auto; /* Mantieni le proporzioni delle immagini */
       border-radius: 10px;
     }
 
@@ -43,7 +46,7 @@
 
     .caption {
       color: #555;
-      font-size: 18px;
+      font-size: 1.2em; /* Imposta una dimensione del font leggibile */
       margin-top: 10px;
     }
 
@@ -52,12 +55,27 @@
       color: #777;
       font-size: 14px;
     }
+
+    /* Media query per schermi di dimensioni più piccole */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em; /* Riduce la dimensione del titolo sui dispositivi mobili */
+      }
+
+      .caption {
+        font-size: 1em; /* Riduce la dimensione del testo della didascalia */
+      }
+
+      .slideshow-container {
+        max-width: 100%; /* Assicura che il contenitore si adatti al 100% della larghezza */
+      }
+    }
   </style>
 </head>
 <body>
   <h1>Loryefix va in Giappone</h1>
   <div class="slideshow-container">
-    <!-- Images -->
+    <!-- Immagini -->
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true" alt="Image 1">
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true" alt="Image 2">
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/3.jpg?raw=true" alt="Image 3">
@@ -128,4 +146,4 @@
     setInterval(nextSlide, 3000);
   </script>
 </body>
-</html> 
+</html>
