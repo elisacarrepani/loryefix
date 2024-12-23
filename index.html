@@ -8,13 +8,13 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f4f4f4;
+      background-color: #000;
+      color: white;
       margin: 0;
       padding: 0;
     }
 
     h1 {
-      color: #333;
       margin: 20px 0;
     }
 
@@ -23,9 +23,7 @@
       max-width: 800px;
       margin: auto;
       overflow: hidden;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      background-color: #fff;
+      background-color: #000;
     }
 
     .slide {
@@ -35,16 +33,11 @@
     .slide img {
       width: 100%;
       border-radius: 10px;
+      border: 2px solid #fff;
     }
 
     .active {
       display: block;
-    }
-
-    .caption {
-      color: #555;
-      font-size: 18px;
-      margin-top: 10px;
     }
 
     footer {
@@ -70,10 +63,8 @@
     <img class="slide" src="https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true" alt="Image 10">
   </div>
 
-  <div class="caption" id="caption"></div>
-
   <script>
-    // Array delle immagini e didascalie
+    // Array delle immagini
     const images = [
       "https://github.com/elisacarrepani/loryefix/blob/main/1.jpg?raw=true",
       "https://github.com/elisacarrepani/loryefix/blob/main/2.jpg?raw=true",
@@ -87,32 +78,17 @@
       "https://github.com/elisacarrepani/loryefix/blob/main/10.jpg?raw=true"
     ];
 
-    const captions = [
-      "Immagine 1",
-      "Immagine 2",
-      "Immagine 3",
-      "Immagine 4",
-      "Immagine 5",
-      "Immagine 6",
-      "Immagine 7",
-      "Immagine 8",
-      "Immagine 9",
-      "Immagine 10"
-    ];
-
     let currentIndex = 0;
 
     // Funzione per mostrare la slide corrente
     function showSlide(index) {
       const slides = document.querySelectorAll('.slide');
-      const caption = document.getElementById("caption");
 
       // Nasconde tutte le slide
       slides.forEach(slide => slide.style.display = 'none');
 
       // Mostra la slide selezionata
       slides[index].style.display = 'block';
-      caption.textContent = captions[index];
     }
 
     // Funzione per cambiare la slide automaticamente ogni 3 secondi
