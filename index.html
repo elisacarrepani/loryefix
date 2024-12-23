@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loryefix va in Giappone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #333;
+      margin: 20px 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .caption {
+      color: #555;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loryefix va in Giappone</h1>
+  <div class="slideshow-container">
+    <div class="slide active">
+      <img src="" alt="Random Slide" id="slide-image">
+    </div>
+  </div>
+  <div class="caption" id="caption"></div>
+
+  <footer>
+    Powered by <a href="https://github.com/" target="_blank">GitHub Pages</a>
+  </footer>
+
+  <script>
+    // Array di URL delle immagini caricate su GitHub
+    const images = [
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine1.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine2.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine3.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine4.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine5.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine6.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine7.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine8.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine9.jpg",
+      "https://<elisacarrepani>.github.io/<loryefix>/immagine10.jpg"
+    ];
+
+    // Mostra una slide casuale
+    function showRandomSlide() {
+      const randomIndex = Math.floor(Math.random() * images.length);
+
+      // Aggiorna l'immagine e la didascalia
+      const slideImage = document.getElementById("slide-image");
+      slideImage.src = images[randomIndex];
+
+      const caption = document.getElementById("caption");
+      caption.textContent = captions[randomIndex];
+    }
+
+    // Cambia slide ogni 3 secondi
+    setInterval(showRandomSlide, 3000);
+
+    // Mostra subito la prima immagine
+    showRandomSlide();
+  </script>
+</body>
+</html>
