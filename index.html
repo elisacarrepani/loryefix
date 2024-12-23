@@ -19,21 +19,25 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      display: flex;
+      justify-content: center; /* Centra l'immagine orizzontalmente */
+      align-items: center;     /* Centra l'immagine verticalmente */
+      cursor: pointer;        /* Cambia il cursore per far capire che è cliccabile */
     }
 
     .slide {
       display: none;
-      width: 100%;
-      height: 100%;
+      width: auto;  /* Lascio la larghezza originale */
+      height: auto; /* Lascio l'altezza originale */
     }
 
     .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Fai in modo che le immagini si adattino a schermo intero */
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* Mantieni le dimensioni originali dell'immagine */
     }
 
-    /* Media query per schermi più piccoli, per visualizzazione intera */
+    /* Media query per schermi più piccoli */
     @media (max-width: 600px) {
       .slideshow-container {
         height: 100vh; /* Altezza del contenitore 100% della finestra */
@@ -82,17 +86,14 @@
       slides[index].style.display = 'block';
     }
 
-    // Funzione per cambiare la slide automaticamente ogni 5 secondi
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showSlide(currentIndex);
-    }
-
-    // Inizializza la prima slide
+    // Mostra subito la prima slide
     showSlide(currentIndex);
 
-    // Cambia la slide ogni 5 secondi
-    setInterval(nextSlide, 5000);
+    // Funzione per cambiare la slide al clic
+    document.querySelector('.slideshow-container').addEventListener('click', function() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showSlide(currentIndex);
+    });
   </script>
 </body>
 </html>
