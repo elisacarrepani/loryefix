@@ -20,24 +20,25 @@
 
     .slideshow-container {
       position: relative;
-      max-width: 800px;
+      max-width: 100%;
       margin: auto;
       overflow: hidden;
       background-color: #000;
+      display: flex;
+      justify-content: center;
     }
 
     .slide {
       display: none;
+      width: 100%;
+      height: auto;
     }
 
     .slide img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
       border: 2px solid #fff;
-    }
-
-    .active {
-      display: block;
     }
 
     footer {
@@ -45,6 +46,19 @@
       color: #777;
       font-size: 14px;
     }
+
+    /* Media query per dispositivi mobili */
+    @media (max-width: 768px) {
+      .slideshow-container {
+        max-width: 100%;
+      }
+
+      .slide img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -105,3 +119,4 @@
   </script>
 </body>
 </html>
+
